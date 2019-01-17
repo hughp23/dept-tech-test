@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../api";
 import "../css/CardDetails.css";
 
-const selectedCities = [];
+let selectedCities = [];
 
 class CardDetails extends Component {
   state = {
@@ -75,6 +75,7 @@ class CardDetails extends Component {
     const newCities = cities.filter(city => {
       return city.location !== value;
     });
+    selectedCities = [];
     this.setState({ cities: newCities });
   };
 
