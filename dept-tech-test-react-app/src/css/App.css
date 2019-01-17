@@ -1,4 +1,35 @@
 .App {
   text-align: center;
-  background-image: linear-gradient(purple, blue) 100vh;
+  background-image: linear-gradient(to bottom right, purple, rgb(35, 138, 172));
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  grid-template: 25% 10% 65%/ 100%;
+  grid-template-areas:
+    "header"
+    "searchBox"
+    "cards";
+}
+
+.header {
+  padding: 2.25em;
+}
+
+.searchBox {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.cards {
+  height: 500;
+  margin-top: 5em;
+}
+
+@media screen and (max-width: 640px) {
+  .searchBox {
+    width: 100%;
+  }
 }

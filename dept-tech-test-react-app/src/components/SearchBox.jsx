@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/lib/animated";
 import * as api from "../api";
+import "../css/SearchBox.css";
 
 class SearchBox extends Component {
   state = {
@@ -11,9 +12,9 @@ class SearchBox extends Component {
   render() {
     const { cities } = this.state;
     return (
-      <div>
-        <h2>Search Box</h2>
+      <div className="searchBox">
         <Select
+          className="selectDropDown"
           closeMenuOnSelect={false}
           components={makeAnimated()}
           options={cities}

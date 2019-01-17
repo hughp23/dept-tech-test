@@ -1,0 +1,67 @@
+.cards {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  height: 22em;
+  width: 16em;
+  font-family: "Open Sans", sans-serif;
+  display: grid;
+  grid-template: 12.5% 12.5% 12.5% 15% 40% / 100%;
+  grid-template-areas:
+    "updateAndButton"
+    "location location"
+    "city city"
+    "valuesHeader valuesHeader"
+    "values values";
+}
+
+.updateStatus {
+  margin: 1em;
+  padding-top: 0.8em;
+}
+
+.deleteButton {
+  background-color: whitesmoke;
+}
+
+.deleteButton:hover {
+  transform: scale(1.1, 1.1);
+  transition: 0.5s ease;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0.5em;
+}
+
+.city {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.values {
+  width: 10em;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.updateAndButton {
+  display: grid;
+  grid-template: 100% / 80% 20%;
+  grid-template-areas: "updateStatus deleteButton";
+}

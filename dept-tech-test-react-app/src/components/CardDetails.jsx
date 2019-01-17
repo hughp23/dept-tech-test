@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
+import "../css/CardDetails.css";
 
 const selectedCities = [];
 
@@ -10,30 +11,41 @@ class CardDetails extends Component {
   render() {
     const { cities } = this.state;
     return (
-      <div>
-        <h1>Card Details</h1>
+      <div className="cards">
+        {/* <h1>Card Details</h1> */}
         {cities.map(city => {
           return (
             <div key={city.location}>
-              <h4>
-                Last Updated{" "}
-                {this.getLastUpdated(city.measurements[0].lastUpdated)}
-              </h4>
-              <h3>{city.location}</h3>
-              <p>{`${city.city}, United Kingdom`}</p>
-              <h4>
-                Values:{" "}
-                {city.measurements.map(measurement => {
-                  return (
-                    <p key={measurement.parameter}>{`${
-                      measurement.parameter
-                    }: ${measurement.value}`}</p>
-                  );
-                })}
-              </h4>
-              <button value={city.location} onClick={this.deleteCard}>
-                Delete Card
-              </button>
+              <div className="card">
+                <div className="updateAndButton">
+                  <h6 className="updateStatus">
+                    LAST UPDATED{" "}
+                    {this.getLastUpdated(city.measurements[0].lastUpdated)}
+                  </h6>
+                  <button
+                    className="deleteButton"
+                    value={city.location}
+                    onClick={this.deleteCard}
+                  >
+                    <img
+                      alt="Delete"
+                      src={require("../assests/clear-button.png")}
+                    />
+                  </button>
+                </div>
+                <h3 className="location">{city.location}</h3>
+                <p className="city">{`${city.city}, United Kingdom`}</p>
+                <h4 className="valuesHeader">Values: </h4>
+                <div className="values">
+                  {city.measurements.map(measurement => {
+                    return (
+                      <p key={measurement.parameter}>{`${
+                        measurement.parameter
+                      }: ${measurement.value}`}</p>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           );
         })}
@@ -76,13 +88,15 @@ class CardDetails extends Component {
     const hours = Math.floor(timeLastUpdated / 3600000);
     const days = Math.floor(timeLastUpdated / 86400000);
     if (hours < 24 && hours > 1) {
-      return `${hours} hours ago`;
-    } else if (hours <= 1) {
-      return `${hours} hour ago`;
+      return `${hours} HOURS AGO`;
+    } else if (hours === 1) {
+      return `AN HOUR AGO`;
+    } else if (hours < 1) {
+      return "LESS THAN AN HOUR AGO";
     } else if (hours / 24 < 7) {
-      return `${days} days ago`;
+      return `${days} DAYS AGO`;
     } else if (days === 1) {
-      return `${days} day ago`;
+      return `A DAY AGO`;
     }
   };
 }
