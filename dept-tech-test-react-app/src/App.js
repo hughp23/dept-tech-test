@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./css/App.css";
 import SearchBox from "./components/SearchBox";
 import CardDetails from "./components/CardDetails";
-// import * as api from "./api";
 
 class App extends Component {
   state = {
@@ -18,12 +17,6 @@ class App extends Component {
       </div>
     );
   }
-
-  // componentDidMount() {
-  //   api.getCities().then(data => {
-  //     console.log(data);
-  //   });
-  // }
 
   selectCity = selectedCity => {
     this.setState({ selectedCity });

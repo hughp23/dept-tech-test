@@ -16,9 +16,6 @@ class SearchBox extends Component {
         <Select
           closeMenuOnSelect={false}
           components={makeAnimated()}
-          //   defaultValue={[colourOptions[4], colourOptions[5]]}
-          //   isMulti
-          //   value={selectedCity}
           options={cities}
           onChange={this.handleSelect}
         />

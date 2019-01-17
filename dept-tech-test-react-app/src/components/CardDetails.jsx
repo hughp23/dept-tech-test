@@ -65,7 +65,6 @@ class CardDetails extends Component {
     const newCities = cities.filter(city => {
       return city.location !== value;
     });
-    console.log(newCities);
     this.setState({ cities: newCities });
   };
 
@@ -74,9 +73,17 @@ class CardDetails extends Component {
     const timeInMS = Date.parse(d);
     const date = Date.now();
     const timeLastUpdated = date - timeInMS;
-    console.log(timeLastUpdated, "time in milliseconds");
-    // const hours =
-    return timeLastUpdated;
+    const hours = Math.floor(timeLastUpdated / 3600000);
+    const days = Math.floor(timeLastUpdated / 86400000);
+    if (hours < 24 && hours > 1) {
+      return `${hours} hours ago`;
+    } else if (hours <= 1) {
+      return `${hours} hour ago`;
+    } else if (hours / 24 < 7) {
+      return `${days} days ago`;
+    } else if (days === 1) {
+      return `${days} day ago`;
+    }
   };
 }
 
