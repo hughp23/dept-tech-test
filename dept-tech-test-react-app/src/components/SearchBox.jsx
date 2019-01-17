@@ -19,6 +19,7 @@ class SearchBox extends Component {
           components={makeAnimated()}
           options={cities}
           onChange={this.handleSelect}
+          placeholder="Enter city name..."
         />
       </div>
     );
