@@ -9,12 +9,33 @@ class CardDetails extends Component {
   };
   render() {
     const { cities } = this.state;
-    console.log(cities[0], "cities in render");
     return (
       <div>
         <h1>Card Details</h1>
         {cities.map(city => {
-          return <h3 key={city.location}>{city.location}</h3>;
+          return (
+            <div key={city.location}>
+              <h4>
+                Last Updated{" "}
+                {this.getLastUpdated(city.measurements[0].lastUpdated)}
+              </h4>
+              <h3>{city.location}</h3>
+              <p>{`${city.city}, United Kingdom`}</p>
+              <h4>
+                Values:{" "}
+                {city.measurements.map(measurement => {
+                  return (
+                    <p key={measurement.parameter}>{`${
+                      measurement.parameter
+                    }: ${measurement.value}`}</p>
+                  );
+                })}
+              </h4>
+              <button value={city.location} onClick={this.deleteCard}>
+                Delete Card
+              </button>
+            </div>
+          );
         })}
       </div>
     );
@@ -37,6 +58,26 @@ class CardDetails extends Component {
       });
     }
   }
+
+  deleteCard = event => {
+    const { value } = event.target;
+    const { cities } = this.state;
+    const newCities = cities.filter(city => {
+      return city.location !== value;
+    });
+    console.log(newCities);
+    this.setState({ cities: newCities });
+  };
+
+  getLastUpdated = lastUpdated => {
+    const d = new Date(lastUpdated);
+    const timeInMS = Date.parse(d);
+    const date = Date.now();
+    const timeLastUpdated = date - timeInMS;
+    console.log(timeLastUpdated, "time in milliseconds");
+    // const hours =
+    return timeLastUpdated;
+  };
 }
 
 export default CardDetails;
