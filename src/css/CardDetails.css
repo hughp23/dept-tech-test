@@ -32,11 +32,17 @@
 
 .deleteButton {
   background-color: whitesmoke;
+  border: none;
 }
 
 .deleteButton:hover {
   transform: scale(1.1, 1.1);
   transition: 0.5s ease;
+}
+
+.deleteImage {
+  width: 1em;
+  height: 1em;
 }
 
 .location {
