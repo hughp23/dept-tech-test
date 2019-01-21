@@ -1,4 +1,4 @@
-## Northcoders News
+## Dept Tech Test
 
 This is a technical test given on behalf of Dept limited which allows the user to choose a city form a drop down menu and see the air quality in different areas of the city. The web application was created using React and is hosted on netlify to be viwed publically.
 
