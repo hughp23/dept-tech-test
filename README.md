@@ -1,10 +1,8 @@
 ## Northcoders News
 
-Northcoders News is a social news aggregation, web content rating, and discussion website. Think something along the lines of [Reddit](https://www.reddit.com/).
+This is a technical test given on behalf of Dept limited which allows the user to choose a city form a drop down menu and see the air quality in different areas of the city. The web application was created using React and is hosted on netlify to be viwed publically.
 
-Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
-
-A deployed version of this project can be found here: (https://nc-news-api.netlify.com/)
+A deployed version of this project can be found here: (https://dept-tech-test-hugh-paul.netlify.com)
 
 ## Available Scripts
 
